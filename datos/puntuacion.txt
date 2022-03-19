@@ -1,0 +1,26 @@
+Nombre ---- Puntuacion ---- Personaje
+null ----  100  ----  William Birkin
+ ---- 3 ----  Zombie
+null ---- 12 ----  William Birkin
+null ---- 13 ----  Zombie
+null ---- 2 ----  Albert Wesker
+null ----  100  ----  Leon Kennedy
+null ----  100  ----  Albert Wesker
+null ----  100  ----  Hunk
+null ---- 10 ----  Nemesis
+k ---- 5 ----  Chris Redfield
+l ----  100  ----  Hunk
+null ----  100  ----  Nemesis
+null ---- 13 ----  Chris Redfield
+null ---- 2 ----  Zombie
+null ---- 14 ----  Albert Wesker
+null ---- 4 ----  Jill Valentine
+null ----  100  ----  William Birkin
+null ----  100  ----  Leon Kennedy
+null ---- 10 ----  Nemesis
+null ----  100  ----  Nemesis
+null ----  100  ----  Hunk
+null ---- 10 ----  Hunk
+ ---- 12 ----  Chris Redfield
+null ----  100  ----  Jill Valentine
+null ---- 14 ----  Chris Redfield

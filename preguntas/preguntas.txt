@@ -1,0 +1,26 @@
+1 --> es un humano? NO-> zombie
+
+2 --> ha creado algun virus? SI-> birkin
+
+3 --> pertenece a las fuerzas especiales de Umbrella Corps? SI-> HUNK
+
+4 --> ha estado en el incidente de racoon city?
+
+5 --> ha sido infectado con un virus?
+
+6 --> ha estado en la R.P.D?
+
+7 --> A combatido las plagas en África? SI -> CHRIS
+
+8 --> Da caza a los S.T.A.R.S.? SI -> Nemesis
+
+9 --> A estado en la mansión Spencer?
+
+10 --> A estado por España en busca de la hija del presidente? SI-> Leon
+
+11 --> Es agente doble? SI -> ada
+
+12 --> Fue declarada muerta? SI --> jill
+
+13 --> Muere en un volcan? -> si Albert
+
