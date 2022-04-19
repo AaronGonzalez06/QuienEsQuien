@@ -24,3 +24,15 @@ null ---- 10 ----  Hunk
  ---- 12 ----  Chris Redfield
 null ----  100  ----  Jill Valentine
 null ---- 14 ----  Chris Redfield
+null ---- 13 ----  Chris Redfield
+null ----  100  ----  William Birkin
+null ----  100  ----  Albert Wesker
+null ---- 11 ----  William Birkin
+ ----  100  ----  Leon Kennedy
+ddd ---- 5 ----  Leon Kennedy
+null ---- 7 ----  William Birkin
+null ---- 4 ----  Hunk
+null ---- 14 ----  Leon Kennedy
+null ---- 2 ----  Zombie
+null ---- 9 ----  Albert Wesker
+null ---- 7 ----  Jill Valentine

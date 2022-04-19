@@ -46,7 +46,7 @@ public class JuegoQuien extends JFrame {
 
     public Personaje personajes[];
     public Vidas vidasActivas;
-
+ 
     public String personajeMaquina;
 
     public int empezar = 0;
