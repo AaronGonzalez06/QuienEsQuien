@@ -46,7 +46,7 @@ public class JuegoQuien extends JFrame {
 
     public Personaje personajes[];
     public Vidas vidasActivas;
- 
+
     public String personajeMaquina;
 
     public int empezar = 0;
@@ -64,6 +64,10 @@ public class JuegoQuien extends JFrame {
     public boolean gameOver = false;
     public int puntuacion = 0;
     //fin modo facil
+
+    //modo normal
+    JButton boton1;
+    //fin normal
 
     //modo de juego, con vidas o sin vida
     /*
@@ -157,7 +161,7 @@ public class JuegoQuien extends JFrame {
     //agregar puntuacion
     public void puntuacion() {
         panelPuntuacion = new JPanel();
-        panelPuntuacion.setOpaque(false);        
+        panelPuntuacion.setOpaque(false);
         //panelPuntuacion.setBackground(Color.red);
         panelPuntuacion.setBounds(700, 75, 150, 25);
         juegoPanel.add(panelPuntuacion);
@@ -172,8 +176,8 @@ public class JuegoQuien extends JFrame {
             Font font = Font.createFont(Font.TRUETYPE_FONT, fuente);
             //dar tanaño fuente
             Font sizedFont = font.deriveFont(20f);
-            etiquetaPuntuacion.setFont(sizedFont);            
-            
+            etiquetaPuntuacion.setFont(sizedFont);
+
         } catch (FontFormatException ex) {
             System.err.println("error en font format");
         } catch (IOException ex) {
@@ -237,7 +241,6 @@ public class JuegoQuien extends JFrame {
 
         juegoPanel.add(metal);
 
-
         //img logo
         JLabel logo = new JLabel();
         //añadimos la imagen
@@ -249,9 +252,7 @@ public class JuegoQuien extends JFrame {
         logo.setIcon(iconLogo);
         logo.setBounds(50, 680, 250, 250);
 
-        juegoPanel.add(logo);        
-        
-        
+        juegoPanel.add(logo);
 
         //juegoPanel.add(fondo);
 //quitar para que salga el fondo de pantall de zombies        
@@ -295,6 +296,7 @@ public class JuegoQuien extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String[] modo = {
                     "Facil",
+                    "Normal",
                     "Dificil"
                 };
                 modoJuego = (String) JOptionPane.showInputDialog(null, "Seleccione el modo de juego.", "Dificultad", JOptionPane.DEFAULT_OPTION, null, modo, modo[0]);
@@ -389,24 +391,11 @@ public class JuegoQuien extends JFrame {
             modo = 0;
         } else if (modoJuego == "Dificil") {
             modo = 1;
+        } else if (modoJuego == "Normal") {
+            modo = 2;
         }
         cambioJuego(modo);
 
-        /*if (modo == 1) {
-            System.out.println("emtro 1");
-            //vidas
-            vidas();
-            //elegir pregunta y su respuesta
-            question();
-            //pulsador
-            ping();
-        }
-        //modo facil- normal
-        if (modo == 0) {
-            System.out.println("emtro 0");
-            questionFacil();
-            pingFacil();
-        }*/
         //foto fondo para que no tape el resto de las que esta encima
         juegoPanel.add(fondo);
     }
@@ -477,7 +466,10 @@ public class JuegoQuien extends JFrame {
 
     }
 
-    //prueba metodos
+    /*
+    en funcion del modo, se ejecutara unos procedimientos u otros, que estan determinados por un 
+    condicional.
+     */
     public void cambioJuego(int cambio) {
 
         if (cambio == 0) {
@@ -495,6 +487,90 @@ public class JuegoQuien extends JFrame {
             question();
             //pulsador
             ping();
+        } else if (cambio == 2) {
+            System.out.println("Normal");
+            //setLayout(null);
+            boton1 = new JButton("preguntar");
+            boton1.setBounds(600, 500, 100, 30);
+            this.add(boton1);
+
+            respuesta = new JLabel();
+            respuesta.setText("bienvenido  al juego.");
+            respuesta.setForeground(Color.GRAY);
+            File fuente = new File("fuente/fuente.ttf");
+            try {
+                //crea la fuente
+                Font font = Font.createFont(Font.TRUETYPE_FONT, fuente);
+                //dar tanaño fuente
+                Font sizedFont = font.deriveFont(20f);
+                respuesta.setFont(sizedFont);
+
+            } catch (FontFormatException ex) {
+                System.err.println("error en font format");
+            } catch (IOException ex) {
+                System.err.println("error de entrada/salida");
+            }
+
+            boton1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    int numeroPregunta = (int) Math.floor(Math.random() * 13 + 1);
+                    System.out.println("numero que sale: " + numeroPregunta);
+
+                    switch (numeroPregunta) {
+                        case 1:
+
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_1());
+                            preguntas[0].setForeground(Color.red);
+                            preguntas[0].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_1());
+                            Preguntas estado = pregunta[0];
+                            estado.setEstado(1);
+
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_1());
+                            break;
+                        case 2:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_2());
+                            break;
+                        case 3:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_3());
+                            break;
+                        case 4:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_4());
+                            break;
+                        case 5:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_5());
+                            break;
+                        case 6:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_6());
+                            break;
+                        case 7:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_7());
+                            break;
+                        case 8:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_8());
+                            break;
+                        case 9:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_9());
+                            break;
+                        case 10:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_10());
+                            break;
+                        case 11:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_11());
+                            break;
+                        case 12:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_12());
+                            break;
+                        case 13:
+                            System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_13());
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+            });
+            panelRespuesta.add(respuesta);
         }
 
     }
@@ -536,8 +612,8 @@ public class JuegoQuien extends JFrame {
             Font font = Font.createFont(Font.TRUETYPE_FONT, fuente);
             //dar tanaño fuente
             Font sizedFont = font.deriveFont(20f);
-            respuesta.setFont(sizedFont);            
-            
+            respuesta.setFont(sizedFont);
+
         } catch (FontFormatException ex) {
             System.err.println("error en font format");
         } catch (IOException ex) {
@@ -759,8 +835,8 @@ public class JuegoQuien extends JFrame {
             Font font = Font.createFont(Font.TRUETYPE_FONT, fuente);
             //dar tanaño fuente
             Font sizedFont = font.deriveFont(20f);
-            respuesta.setFont(sizedFont);            
-            
+            respuesta.setFont(sizedFont);
+
         } catch (FontFormatException ex) {
             System.err.println("error en font format");
         } catch (IOException ex) {
@@ -2131,7 +2207,7 @@ public class JuegoQuien extends JFrame {
         }
     }
 
-    //barra del juego
+    //reiniciar el juego
     public void reiniciar() {
         puntuacion = 0;
         empezar = 0;
@@ -2148,8 +2224,8 @@ public class JuegoQuien extends JFrame {
         for (int x = 0; x < pregunta.length; x++) {
             String rescribir = pregunta[x].getPregunta();
             //pregunta[x].setPregunta(reinicio);
-            preguntas[x].setText(rescribir);               
-                     
+            preguntas[x].setText(rescribir);
+
         }
 
         int numMaquina = (int) Math.floor(Math.random() * 8 + 1);
@@ -2202,6 +2278,7 @@ public class JuegoQuien extends JFrame {
 
     }
 
+    //barra de menú del juego
     public void barramenu() {
         JMenuBar menubar = new JMenuBar();
         this.setJMenuBar(menubar);
@@ -2269,7 +2346,7 @@ public class JuegoQuien extends JFrame {
     }
 
     ;
-            
+            //creación de los personajes
         private void crearpersonajes() {
         personajes = new Personaje[9];
         personajes[0] = new Personaje("Ada Wong", "img/00.jpg", "img/00.jpg", 0, "si", "no", "no", "si", "no", "no", "no", "no", "no", "si", "si", "si", "no");
@@ -2285,6 +2362,7 @@ public class JuegoQuien extends JFrame {
         personajes[8] = new Personaje("William Birkin", "img/22.jpg", "img/22.jpg", 0, "si", "si", "no", "si", "si", "no", "no", "no", "si", "no", "no", "no", "no");
     }
 
+    //creación de las preguntas
     private void crearpreguntas() {
         pregunta = new Preguntas[13];
         pregunta[0] = new Preguntas("Es un humano", 1, 0);
