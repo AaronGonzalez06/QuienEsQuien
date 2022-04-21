@@ -40,3 +40,6 @@ null ---- 7 ----  Albert Wesker
 null ---- 8 ----  Albert Wesker
 null ---- 7 ----  Nemesis
 null ---- 9 ----  Chris Redfield
+null ---- 9 ----  Chris Redfield
+null ---- 2 ----  Nemesis
+null ---- 19 ----  Albert Wesker

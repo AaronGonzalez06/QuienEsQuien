@@ -2489,7 +2489,8 @@ public class JuegoQuien extends JFrame {
         clickPersona = 0;
         verificar = 0;
         gameOver = false;
-        if (modo == 0) {
+        pulsarBoton = true;
+        if (modo == 0 || modo == 2) {
             String textPuntuacion = "puntuacion :" + puntuacion;
             etiquetaPuntuacion.setText(textPuntuacion);
         }
