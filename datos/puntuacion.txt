@@ -43,3 +43,6 @@ null ---- 9 ----  Chris Redfield
 null ---- 9 ----  Chris Redfield
 null ---- 2 ----  Nemesis
 null ---- 19 ----  Albert Wesker
+null ---- 7 ----  Jill Valentine
+null ---- 2 ----  Jill Valentine
+null ---- 9 ----  Nemesis
