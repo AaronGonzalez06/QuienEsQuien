@@ -36,3 +36,7 @@ null ---- 14 ----  Leon Kennedy
 null ---- 2 ----  Zombie
 null ---- 9 ----  Albert Wesker
 null ---- 7 ----  Jill Valentine
+null ---- 7 ----  Albert Wesker
+null ---- 8 ----  Albert Wesker
+null ---- 7 ----  Nemesis
+null ---- 9 ----  Chris Redfield

@@ -67,6 +67,7 @@ public class JuegoQuien extends JFrame {
 
     //modo normal
     JButton boton1;
+    boolean pulsarBoton = true;
     //fin normal
 
     //modo de juego, con vidas o sin vida
@@ -490,6 +491,8 @@ public class JuegoQuien extends JFrame {
         } else if (cambio == 2) {
             System.out.println("Normal");
             //setLayout(null);
+            puntuacion();
+
             boton1 = new JButton("preguntar");
             boton1.setBounds(600, 500, 100, 30);
             this.add(boton1);
@@ -514,63 +517,320 @@ public class JuegoQuien extends JFrame {
             boton1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    int numeroPregunta = (int) Math.floor(Math.random() * 13 + 1);
-                    System.out.println("numero que sale: " + numeroPregunta);
+                    empezar = 1;
+                    int numeroPregunta;
+                    do {
+                        numeroPregunta = (int) Math.floor(Math.random() * 13 + 1);
+                    } while (pregunta[numeroPregunta - 1].getEstado() == 1);
 
+                    if (pulsarBoton != true) {
+                        numeroPregunta = 14;
+                    } else {
+                        pulsarBoton = false;
+                        puntuacion++;
+                        String textPuntuacion = "puntuacion :" + puntuacion;
+                        etiquetaPuntuacion.setText(textPuntuacion);
+                    }
+
+                    System.out.println("numero que sale: " + numeroPregunta);
+                    Preguntas estado;
+                    int tiene;
                     switch (numeroPregunta) {
                         case 1:
-
                             respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_1());
                             preguntas[0].setForeground(Color.red);
                             preguntas[0].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_1());
-                            Preguntas estado = pregunta[0];
+                            estado = pregunta[0];
                             estado.setEstado(1);
+                            preguntaActual = 1;
+
+                            respuestaActual = clasePersonaje.getPregunta_1();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_1() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
 
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_1());
                             break;
                         case 2:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_2());
+                            preguntas[1].setForeground(Color.red);
+                            preguntas[1].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_2());
+                            estado = pregunta[1];
+                            estado.setEstado(1);
+                            preguntaActual = 2;
+
+                            respuestaActual = clasePersonaje.getPregunta_2();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_2() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_2());
                             break;
                         case 3:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_3());
+                            preguntas[2].setForeground(Color.red);
+                            preguntas[2].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_3());
+                            estado = pregunta[2];
+                            estado.setEstado(1);
+                            preguntaActual = 3;
+
+                            respuestaActual = clasePersonaje.getPregunta_3();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_3() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_3());
                             break;
                         case 4:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_4());
+                            preguntas[3].setForeground(Color.red);
+                            preguntas[3].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_4());
+                            estado = pregunta[3];
+                            estado.setEstado(1);
+                            preguntaActual = 4;
+
+                            respuestaActual = clasePersonaje.getPregunta_4();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_4() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_4());
                             break;
                         case 5:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_5());
+                            preguntas[4].setForeground(Color.red);
+                            preguntas[4].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_5());
+                            estado = pregunta[4];
+                            estado.setEstado(1);
+                            preguntaActual = 5;
+
+                            respuestaActual = clasePersonaje.getPregunta_5();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_5() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_5());
                             break;
                         case 6:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_6());
+                            preguntas[5].setForeground(Color.red);
+                            preguntas[5].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_6());
+                            estado = pregunta[5];
+                            estado.setEstado(1);
+                            preguntaActual = 6;
+
+                            respuestaActual = clasePersonaje.getPregunta_6();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_6() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_6());
                             break;
                         case 7:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_7());
+                            preguntas[6].setForeground(Color.red);
+                            preguntas[6].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_7());
+                            estado = pregunta[6];
+                            estado.setEstado(1);
+                            preguntaActual = 7;
+
+                            respuestaActual = clasePersonaje.getPregunta_7();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_7() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_7());
                             break;
                         case 8:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_8());
+                            preguntas[7].setForeground(Color.red);
+                            preguntas[7].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_8());
+                            estado = pregunta[7];
+                            estado.setEstado(1);
+                            preguntaActual = 8;
+
+                            respuestaActual = clasePersonaje.getPregunta_8();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_8() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_8());
                             break;
                         case 9:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_9());
+                            preguntas[8].setForeground(Color.red);
+                            preguntas[8].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_9());
+                            estado = pregunta[8];
+                            estado.setEstado(1);
+                            preguntaActual = 9;
+
+                            respuestaActual = clasePersonaje.getPregunta_9();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_9() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_9());
                             break;
                         case 10:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_10());
+                            preguntas[9].setForeground(Color.red);
+                            preguntas[9].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_10());
+                            estado = pregunta[9];
+                            estado.setEstado(1);
+                            preguntaActual = 10;
+
+                            respuestaActual = clasePersonaje.getPregunta_10();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_10() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_10());
                             break;
                         case 11:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_11());
+                            preguntas[10].setForeground(Color.red);
+                            preguntas[10].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_11());
+                            estado = pregunta[10];
+                            estado.setEstado(1);
+                            preguntaActual = 11;
+
+                            respuestaActual = clasePersonaje.getPregunta_11();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_11() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_11());
                             break;
                         case 12:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_12());
+                            preguntas[11].setForeground(Color.red);
+                            preguntas[11].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_12());
+                            estado = pregunta[11];
+                            estado.setEstado(1);
+                            preguntaActual = 12;
+
+                            respuestaActual = clasePersonaje.getPregunta_12();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_12() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_12());
                             break;
                         case 13:
+                            respuesta.setText(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_13());
+                            preguntas[12].setForeground(Color.red);
+                            preguntas[12].setText(pregunta[numeroPregunta - 1].getPregunta() + " -- " + clasePersonaje.getPregunta_13());
+                            estado = pregunta[12];
+                            estado.setEstado(1);
+                            preguntaActual = 13;
+
+                            respuestaActual = clasePersonaje.getPregunta_13();
+                            tiene = 0;
+                            for (int z = 0; z < personajes.length; z++) {
+                                if ((personajes[z].getPregunta_13() != respuestaActual) && (personajes[z].getEstado() != 1)) {
+                                    tiene++;
+                                }
+                            }
+                            if (tiene == 0) {
+                                JOptionPane.showMessageDialog(null, "Esta pregunta no tiene ningun personaje asociado ya");
+                                pulsarBoton = true;
+                            }
+
                             System.out.println(pregunta[numeroPregunta - 1].getPregunta() + ": " + clasePersonaje.getPregunta_13());
                             break;
                         default:
+                            JOptionPane.showMessageDialog(null, "Seleciona todas las opciones para poder seguir preguntando.");
                             break;
                     }
                 }
 
             });
             panelRespuesta.add(respuesta);
+            pingFacil();
         }
 
     }
@@ -1641,6 +1901,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -1684,6 +1945,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -1727,6 +1989,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -1770,6 +2033,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -1813,6 +2077,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -1856,6 +2121,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -1899,6 +2165,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -1942,6 +2209,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -1985,6 +2253,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -2028,6 +2297,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -2071,6 +2341,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -2114,6 +2385,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
@@ -2157,6 +2429,7 @@ public class JuegoQuien extends JFrame {
                                                     clickPersona = 0;
                                                     empezar = 0;
                                                     JOptionPane.showMessageDialog(null, "ya puedes volver a seleccionar otra pregunta");
+                                                    pulsarBoton = true;
                                                 }
                                             } else {
                                                 panelImg.add(img[q][z]);
