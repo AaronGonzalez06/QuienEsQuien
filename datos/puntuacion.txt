@@ -47,3 +47,10 @@ null ---- 7 ----  Jill Valentine
 null ---- 2 ----  Jill Valentine
 null ---- 9 ----  Nemesis
 null ---- 12 ----  Chris Redfield
+null ---- 15 ----  Leon Kennedy
+null ---- 10 ----  William Birkin
+null ---- 8 ----  William Birkin
+null ----  100  ----  Nemesis
+null ----  100  ----  William Birkin
+null ----  100  ----  William Birkin
+null ----  100  ----  Chris Redfield

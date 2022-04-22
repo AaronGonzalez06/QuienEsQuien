@@ -303,7 +303,7 @@ public class JuegoQuien extends JFrame {
                     "Normal",
                     "Dificil"
                 };
-                modoJuego = (String) JOptionPane.showInputDialog(null, "Seleccione el modo de juego.", "Dificultad", JOptionPane.DEFAULT_OPTION, null, modo, modo[0]);
+                modoJuego = (String) JOptionPane.showInputDialog(null, "Seleccione el modo de juego.", "Dificultad", JOptionPane.DEFAULT_OPTION, null, modo, modo[1]);
                 clip.close();
                 String voz = "audio/voz.wav";
                 sonidoIntro(voz);
